@@ -9,3 +9,16 @@
  */
 
 const API_ENDPOINT = 'https://icanhazdadjoke.com/';
+const btn = document.getElementById('button');
+const jokeEl = document.getElementById('joke');
+
+btn.onclick = async () => {
+try {
+    const response = await axios.get(API_ENDPOINT, {headers:{Accept:'application/json'}});
+  const data= response.data;
+const joke=data.joke;
+jokeEl.textContent = joke;
+} catch (error) {
+
+}
+}
